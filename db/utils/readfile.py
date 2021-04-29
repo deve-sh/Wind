@@ -2,4 +2,6 @@
 
 def readfile(filename = ""):
     file = open(filename, "r")
-    return file.read()
+    fileContents = file.read()
+    file.close()
+    return fileContents
