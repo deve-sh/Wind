@@ -1,5 +1,7 @@
 import os
 
+from uuid import uuid4
+
 from utils.file_exists import file_exists
 from utils.write_bson import write_bson
 from utils.read_bson import read_bson
@@ -8,6 +10,9 @@ from utils.read_file import read_file
 
 def get_table_file_name(table_name = ""):
     return "tables/" + table_name + ".bson"
+
+def generate_unique_id():
+    return str(uuid4()).replace("-", "")[0:20]
 
 def create_table(table_name = ""):
     table_filename = get_table_file_name(table_name)
@@ -42,7 +47,7 @@ def insert_row(table_name = "", row_data = {}):
         raise "Table could not be read."
     data_to_add = {
         **row_data,
-        "uniqueId": 1234
+        "uniqueId": generate_unique_id()
     }
     table_data["rows"].append(data_to_add)
 
@@ -55,5 +60,4 @@ def insert_row(table_name = "", row_data = {}):
     if(not table_updated):
         raise "Table could not be updated."
     else:
-        print(table_data)
         return True
