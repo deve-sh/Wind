@@ -1,4 +1,4 @@
 import bson
 
-def readbson(bson_string = ""):
+def read_bson(bson_string = ""):
     return bson.loads(bson_string)
