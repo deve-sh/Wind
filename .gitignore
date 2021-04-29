@@ -1,1 +1,4 @@
 db/env
+db/testerscripts.*
+*__pycache*
+db/tables
