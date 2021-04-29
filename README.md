@@ -25,4 +25,5 @@ Options for the format of storage of data:
 3. Fixed Binary Engine (In case we need a fixed schema model.)
 
 Wind V1 Architecure:
+
 ![Wind V1 Architecure](./Wind-Architecture-V1.jpg)
