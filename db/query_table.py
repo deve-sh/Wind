@@ -1,5 +1,8 @@
 from table import read_table
+
 from utils.read_bson import read_bson
+from utils.select_fields_from_dict import select_fields_from_dict
+
 import json
 
 def query_table(
@@ -34,12 +37,8 @@ def query_table(
 
     if(len(matches) > 0 and len(select_fields.keys()) > 0):
         for match in matches:
-            filtered_match = {}
-            for field in match:
-                if(field in select_fields and select_fields[field]):
-                    filtered_match[field] = match[field]
-
-            if(len(filtered_match.keys()) > 0):
+            filtered_match = select_fields_from_dict(match, select_fields)
+            if(filtered_match):
                 filtered_matches.append(filtered_match)
 
     print(json.dumps(filtered_matches, indent = 4))
