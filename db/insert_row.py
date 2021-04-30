@@ -17,7 +17,7 @@ def insert_row(table_name = "", row_data = {}):
         raise "Table could not be read."
     data_to_add = {
         **row_data,
-        "uniqueId": generate_unique_id()
+        "uniqueId": generate_unique_row_id()
     }
     table_data["rows"].append(data_to_add)
 
