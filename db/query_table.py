@@ -40,6 +40,12 @@ def query_table(
             filtered_match = select_fields_from_dict(match, select_fields)
             if(filtered_match):
                 filtered_matches.append(filtered_match)
+    else:
+        filtered_matches = matches
 
-    print(json.dumps(filtered_matches, indent = 4))
-    return matches
+    if(only_one):
+        if(len(filtered_matches) > 0):
+            return filtered_matches[0]
+        else:
+            return None
+    return filtered_matches
