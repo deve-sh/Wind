@@ -11,9 +11,6 @@ from utils.read_file import read_file
 def get_table_file_name(table_name = ""):
     return "tables/" + table_name + ".bson"
 
-def generate_unique_id():
-    return str(uuid4()).replace("-", "")[0:20]
-
 def create_table(table_name = ""):
     table_filename = get_table_file_name(table_name)
     if(file_exists(table_filename)):
@@ -39,25 +36,3 @@ def read_table(table_name = ""):
     else:
         bson = read_file(table_filename, True)
         return read_bson(bson)
-
-def insert_row(table_name = "", row_data = {}):
-    table_data = read_table(table_name)
-    table_filename = get_table_file_name(table_name)
-    if(not table_data):
-        raise "Table could not be read."
-    data_to_add = {
-        **row_data,
-        "uniqueId": generate_unique_id()
-    }
-    table_data["rows"].append(data_to_add)
-
-    table_updated = write_file(
-        table_filename,
-        write_bson(table_data),
-        True
-    )
-
-    if(not table_updated):
-        raise "Table could not be updated."
-    else:
-        return True
