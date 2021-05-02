@@ -1,4 +1,4 @@
-def match_row_by_filter(row = {}, filters = {}):
+def match_row_by_filters(row = {}, filters = {}):
     all_filters_match = True
     for key in filters:
         if(not key in row or row[key] != filters[key]):
