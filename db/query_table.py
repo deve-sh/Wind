@@ -2,6 +2,7 @@ from table import read_table
 
 from utils.read_bson import read_bson
 from utils.select_fields_from_dict import select_fields_from_dict
+from utils.match_row_by_filters import match_row_by_filters
 
 import json
 
@@ -22,11 +23,7 @@ def query_table(
 
     # Looking in the table for matches to filters
     for row in table_data["rows"]:
-        all_filters_match = True
-        for key in filters:
-            if(not key in row or row[key] != filters[key]):
-                all_filters_match = False
-                break
+        all_filters_match = match_row_by_filters(row, filters)
 
         if(all_filters_match):
             matches.append(row)
