@@ -14,7 +14,7 @@ def get_table_file_name(table_name = ""):
 def create_table(table_name = ""):
     table_filename = get_table_file_name(table_name)
     if(file_exists(table_filename)):
-        return False
+        raise Exception("Table is already present.")
     else:
         # Check if tables folder exists. If not, create it.
         tables_folder_exists = os.path.exists("./tables")
