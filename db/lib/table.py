@@ -31,7 +31,7 @@ def create_table(table_name = ""):
 def read_table(table_name = ""):
     table_filename = get_table_file_name(table_name)
     if(not file_exists(table_filename)):
-        return None
+        raise Exception("Table not found.")
     else:
         bson = read_file(table_filename, True)
         return read_bson(bson)
