@@ -19,7 +19,6 @@ def create_table(table_name = ""):
         # Check if tables folder exists. If not, create it.
         tables_folder_exists = os.path.exists("./tables")
         if(not tables_folder_exists):
-            print("Folder does not exist.")
             os.makedirs("./tables")
         
         creation_success = write_file(
