@@ -2,11 +2,11 @@ import os
 
 from uuid import uuid4
 
-from utils.file_exists import file_exists
-from utils.write_bson import write_bson
-from utils.read_bson import read_bson
-from utils.write_file import write_file
-from utils.read_file import read_file
+from lib.utils.file_exists import file_exists
+from lib.utils.write_bson import write_bson
+from lib.utils.read_bson import read_bson
+from lib.utils.write_file import write_file
+from lib.utils.read_file import read_file
 
 def get_table_file_name(table_name = ""):
     return "tables/" + table_name + ".bson"

@@ -1,8 +1,8 @@
 from table import read_table
 
-from utils.read_bson import read_bson
-from utils.select_fields_from_dict import select_fields_from_dict
-from utils.match_row_by_filters import match_row_by_filters
+from lib.utils.read_bson import read_bson
+from lib.utils.select_fields_from_dict import select_fields_from_dict
+from lib.utils.match_row_by_filters import match_row_by_filters
 
 import json
 

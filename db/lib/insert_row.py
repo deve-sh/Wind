@@ -1,5 +1,5 @@
-from utils.write_file import write_file
-from utils.write_bson import write_bson
+from lib.utils.write_file import write_file
+from lib.utils.write_bson import write_bson
 
 from table import (
     read_table,
