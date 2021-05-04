@@ -1,4 +1,4 @@
-# Command Line API that creates a Database table.
+# Command Line API that queries a Database table.
 
 import sys
 import json
