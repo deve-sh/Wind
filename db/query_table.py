@@ -42,7 +42,7 @@ try:
 
             queried_table = query_table(table_name, filters, only_one, select_fields)
 
-            if(not queried_table):
+            if(not isinstance(queried_table, list) and not queried_table):
                 raise Exception("Table could not be queried.")
             
             res["status"] = 201
