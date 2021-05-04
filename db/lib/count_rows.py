@@ -1,6 +1,6 @@
 # Counts rows in a table, matching filters.
 
-from table import read_table
+from lib.table import read_table
 from lib.utils.match_row_by_filters import match_row_by_filters
 
 def count_rows(table_name = "", filters = {}):
