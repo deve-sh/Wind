@@ -1,4 +1,4 @@
-from table import read_table
+from lib.table import read_table
 
 from lib.utils.read_bson import read_bson
 from lib.utils.select_fields_from_dict import select_fields_from_dict
