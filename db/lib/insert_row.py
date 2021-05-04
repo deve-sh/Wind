@@ -1,7 +1,7 @@
 from lib.utils.write_file import write_file
 from lib.utils.write_bson import write_bson
 
-from table import (
+from lib.table import (
     read_table,
     get_table_file_name
 )
