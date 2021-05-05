@@ -20,7 +20,8 @@ try:
         if(
             not receivedJSON or 
             "table_name" not in receivedJSON or 
-            not receivedJSON["table_name"]
+            not receivedJSON["table_name"] or
+            not isinstance(receivedJSON["table_name"], str)
         ):
             res["status"] = 400
             res["message"] = "Table name not provided."
