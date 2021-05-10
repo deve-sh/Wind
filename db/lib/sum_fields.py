@@ -28,8 +28,6 @@ def sum_fields(
 
         if(all_filters_match):
             matches.append(row)
-            if(only_one):
-                break
     
     for match in matches:
         for field in fields_to_sum:
