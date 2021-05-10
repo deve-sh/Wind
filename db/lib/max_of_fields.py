@@ -3,24 +3,24 @@ from lib.table import read_table
 from lib.utils.read_bson import read_bson
 from lib.utils.match_row_by_filters import match_row_by_filters
 
-def sum_fields(
-    fields_to_sum = [],
+def max_fields(
+    fields_to_find_max_of = [],
     table_name = "",
     filters = {}
 ):
     matches = []
     table_data = read_table(table_name)
 
-    sums = {}
+    maxs = {}
 
-    for field in fields_to_sum:
-        sums[field] = 0
+    for field in fields_to_find_max_of:
+        maxs[field] = None
 
     if(not table_data or not "rows" in table_data):
         raise "Table not found."
     
     if(not len(table_data["rows"])):
-        return sums   # No possible matches
+        return maxs   # No possible matches
 
     # Looking in the table for matches to filters
     for row in table_data["rows"]:
@@ -30,8 +30,12 @@ def sum_fields(
             matches.append(row)
     
     for match in matches:
-        for field in fields_to_sum:
-            if (field in match and float(match[field])):
-                sums[field] += match[field]
+        for field in fields_to_find_max_of:
+            if(
+                field in match and 
+                float(match[field]) and 
+                (maxs[field] == None or maxs[field] < float(match[field]))
+            ):
+                maxs[field] = float(match[field])
 
-    return sums
+    return maxs
