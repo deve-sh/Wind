@@ -32,6 +32,6 @@ def sum_fields(
     for match in matches:
         for field in fields_to_sum:
             if (field in match and float(match[field])):
-                sums[field] += match[field]
+                sums[field] += float(match[field])
 
     return sums
