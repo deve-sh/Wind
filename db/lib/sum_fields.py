@@ -3,8 +3,6 @@ from lib.table import read_table
 from lib.utils.read_bson import read_bson
 from lib.utils.match_row_by_filters import match_row_by_filters
 
-import json
-
 def sum_fields(
     fields_to_sum = [],
     table_name = "",
