@@ -32,7 +32,7 @@ try:
             not isinstance(receivedJSON["fields_to_find_max_of"], list)
         ):
             res["status"] = 400
-            res["message"] = "Fields to Max Not provided."
+            res["message"] = "Fields to find max of not provided."
         else:
             table_name = receivedJSON["table_name"]
             
