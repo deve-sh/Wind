@@ -1,4 +1,4 @@
-# Command Line API that counts the matching rows in a Database table.
+# Command Line API that finds average of matching fields from rows in a Database table.
 
 import sys
 import json
