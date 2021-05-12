@@ -21,8 +21,8 @@ const executePythonScript = async (scriptName = "", arguments = []) => {
         });
 
         python.on('close', () => {
-            if(hasEncounteredError) reject(errorToSend);
-            resolve(dataToSend.join(""))
+            if(hasEncounteredError && errorToSend) return reject(errorToSend);
+            return resolve(dataToSend.join(""))
         });
     });
 }
