@@ -1,4 +1,5 @@
 const commandLineAPIs = {
+    EXECUTOR_COMMAND: "py",
     QUERY_TABLE: "query_table.py",
     COUNT_ROWS: "count_rows.py",
     DROP_TABLE: "drop_table.py",
